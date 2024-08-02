@@ -21,9 +21,7 @@ ip (Default Port 3389)
 
 ## 演示视频
 
-<video src="./README.assets/showvedio.mp4"></video>
-
-
+[![Watch the video](./README.assets/vedio.png)](http://aaaaa.133.w21.net/showvedio.mp4)
 
 ## 原理
 
