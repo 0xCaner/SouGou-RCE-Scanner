@@ -17,6 +17,20 @@ ip:port
 ip (Default Port 3389)
 ```
 
+3. 修改屏幕截图和坐标偏移（默认是Win11 1080p 屏幕下的截图 和 确认坐标）
+
+![confirmConnection](README.assets/confirmConnection.png)
+
+![oldVersionConfirm](README.assets/certConfirm.png)
+
+![oldVersionConfirm](README.assets/oldVersionConfirm.png)
+
+![connectionFailed](README.assets/connectionFailed.png)
+
+修改共计7处坐标偏移，当前逻辑为：find_image_on_screen函数匹配图像在当前屏幕在的中心点，通过计算确认按钮和中心点的偏移，确保每次都能点中选项：
+
+![image-20240803135642091](README.assets/image-20240803135642091.png)
+
 
 
 ## 演示视频
