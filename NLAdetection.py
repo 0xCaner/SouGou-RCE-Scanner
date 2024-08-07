@@ -109,7 +109,7 @@ def AutoCheck():
                 print(f"Terminated process with PID: {process.pid}")
 
 
-            result.write(line)
+            result.write(rdpaddress+"\n")
             continue
 
         time.sleep(0.8)
