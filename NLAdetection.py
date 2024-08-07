@@ -141,7 +141,10 @@ def ManualCheck():
     lines = result.readlines()
     for i in range(len(lines)):
         line = lines[i+1]
-        rdpaddress = line[:-1]
+        if line.endswith("\n"):
+            rdpaddress = line[:-1]
+        else:
+            rdpaddress = line
         if not check_port(rdpaddress):
             print(f"端口未开放连接: {rdpaddress}")
             continue
