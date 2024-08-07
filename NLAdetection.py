@@ -53,7 +53,13 @@ def check_port(rdpaddress, timeout=1):
     :param timeout: 连接超时时间（秒），默认为1秒
     :return: 是否开启 (True: 开启, False: 未开启)
     """
-    host, port = rdpaddress.split(":")
+    res = rdpaddress.split(":")
+    if len(res) == 1:
+        host = res[0]
+        port = 3389
+    else:
+        host, port = rdpaddress.split(":")
+
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(timeout)
     try:
@@ -70,7 +76,10 @@ def AutoCheck():
     result = open("result.txt", "w", encoding="utf-8")
     result.write("\n")
     while (line := file.readline()):
-        rdpaddress = line[:-1]
+        if line.endswith("\n"):
+            rdpaddress = line[:-1]
+        else:
+            rdpaddress = line
         if not check_port(rdpaddress):
             print(f"端口未开放连接: {rdpaddress}")
             continue
